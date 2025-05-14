@@ -2,6 +2,11 @@
 
 Welcome to the **Protein Contaminants Repository** of the Max Perutz Labs MS Facility. In mass spectrometry experiments, it's crucial to account for potential contaminants that may interfere with accurate protein identification. This repository is dedicated to managing and versioning our custom FASTA contaminants file that we use in our facility service.
 
+## Previous Releases
+
+If you're looking for a previous version of the contaminants file, you can find a downloadable version in the [GitHub Releases](https://github.com/maxperutzlabs-ms/perutz-ms-contaminants/releases) section.
+
+
 ## About the contaminants FASTA file
 
 To ensure compatibility with a wide range of bioinformatics software, the contaminants FASTA file should only contain UniProtKB entries or entries have to adhere to the UniProtKB format, which is outlined in detail on [uniprot.org](https://www.uniprot.org/help/fasta-headers).
@@ -14,7 +19,7 @@ For custom protein entries not present in the UniProt database, such as protein 
 
 ## Repository Structure
 
-- **/archive:** This directory contains previous versions of the contaminants file.
+- **/archive**: This directory contains previous versions of the contaminants file that are not part of the Git version history.
 - **contaminants_YYYY_NN.fasta:** The main contaminants file used in current projects of the MS facility. The file is named according to the convention `contaminants_YEAR_NUMBER.fasta`, where YEAR represents the current year, and NUMBER is a running index with two digits reset to 1 each year. The UniProt `UniqueIdentifiers` of FASTA entries are prefixed with **contam_** to indicate that they originate from a contaminants FASTA file.
     - For example, `>sp|P13646|K1C13_HUMAN` becomes `>sp|contam_P13646|K1C13_HUMAN`.
 - **contaminants_notag_YYYY_NN.fasta:** Identical to the main contaminants file, with the sole distinction that the `UniqueIdentifier` of each entry is not prefixed with the **contam_** tag.
