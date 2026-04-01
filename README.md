@@ -24,6 +24,29 @@ For custom protein entries not present in the UniProt database, such as protein 
     - For example, `>sp|P13646|K1C13_HUMAN` becomes `>sp|contam_P13646|K1C13_HUMAN`.
 - **contaminants_notag_YYYY_NN.fasta:** Identical to the main contaminants file, with the sole distinction that the `UniqueIdentifier` of each entry is not prefixed with the **contam_** tag.
 
+## Updating the Contaminants File
+
+All updates to the contaminants FASTA files should be made on the **`wip`** (work-in-progress) branch. These changes are only merged into the `main` branch when a new version is ready to be released. File names are updated to reflect the new release version in the `main` branch before releasing.
+
+To update the contaminants FASTA file with new entries, follow these steps:
+
+1. **Add entries**: Add your new protein entries to the `contaminants_notag_YYYY_NN.fasta` file on the `wip` branch. Entries must have a valid UniProtKB header format and preferably be sourced from SwissProt or TrEMBL.
+
+2. **Validate and format**: Run the validation and formatting script:
+   ```bash
+   uv run scripts/validate_and_format_fasta.py contaminants_notag_YYYY_NN.fasta
+   ```
+   This script validates that all headers follow the UniProtKB format, checks for duplicate identifiers and non-ASCII characters, and reformats sequences to have line breaks after 60 characters. If errors are detected, fix them and re-run the script.
+
+3. **Generate the tagged version**: Once the notag file is validated, generate the version with contaminant tags by running:
+   ```bash
+   uv run scripts/add_contam_tag_to_fasta.py contaminants_notag_YYYY_NN.fasta contaminants_YYYY_NN.fasta
+   ```
+
+4. **Changelog**: Add the changes to the CHANGELOG.md file, under a new `## Pending release` section.
+
+5. **Release**: When ready to release, merge the `wip` branch into `main`, update the file names to the new version number, and create a release with the updated files.
+
 ## Changelog
 
 For a detailed list of changes made to the contaminants FASTA file in each release, please refer to the [CHANGELOG.md](CHANGELOG.md) file.
