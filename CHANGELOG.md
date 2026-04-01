@@ -1,5 +1,13 @@
 # Changelog of the Perutz MS Facility contaminants FASTA file
 
+
+## Pending Release
+
+### Added
+- "LysC" (Promega, V1671) entry Q02SZ7
+
+---
+
 ## Release 2025_01
 
 ### Added
