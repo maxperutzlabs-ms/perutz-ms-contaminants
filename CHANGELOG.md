@@ -1,5 +1,11 @@
 # Changelog of the Perutz MS Facility contaminants FASTA file
 
+
+## Pending Release
+
+### Added
+- "Lysyl endopeptidase" entry, Promega rLys V1671
+
 ## Release 2025_01
 
 ### Added
