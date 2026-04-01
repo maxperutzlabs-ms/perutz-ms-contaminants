@@ -1,7 +1,7 @@
 # /// script
 # requires-python = ">=3.12"
 # dependencies = [
-#   "profasta==0.0.5",
+#   "profasta==0.1.1",
 # ]
 # ///
 
