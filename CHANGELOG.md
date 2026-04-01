@@ -1,10 +1,15 @@
 # Changelog of the Perutz MS Facility contaminants FASTA file
 
 
-## Pending Release
+## Release 2026_01
 
 ### Added
 - "LysC" (Promega, V1671) entry Q02SZ7
+
+### Chore
+- Validation: Updated the formatting script to include a strict check for non-ASCII characters within headers to prevent encoding issues.
+- CI: Integrated a GitHub Actions workflow to automatically validate UniProt header formats and enforce standard FASTA line-wrapping and spacing.
+- Documentation: Added a "Contributing" section to the README.md with specific guidelines on how to modify and propose changes to FASTA files.
 
 ---
 
