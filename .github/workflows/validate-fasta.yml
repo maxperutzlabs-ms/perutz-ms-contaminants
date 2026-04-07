@@ -2,7 +2,11 @@ name: Validate FASTA Files
 
 on:
   push:
+    branches:
+      - main
+      - wip
   pull_request:
+  workflow_call:
 
 jobs:
   validate:

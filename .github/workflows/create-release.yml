@@ -1,0 +1,42 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  validate:
+    uses: ./.github/workflows/validate-fasta.yml
+
+  create-release:
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Extract release changelog entry
+        id: extract_changelog_entry
+        run: |
+          # 1. Start printing after the first '##' and stop at the second '##'
+          # 2. Prepend "## Changelog" to the output
+          # 3. Remove horizontal rules and trailing newlines
+          awk '/^## /{count++} count==1 && !/^## /{print} count==2{exit}' CHANGELOG.md \
+          | sed '/^---/d' \
+          | perl -0777 -pe 's/\n+\z/\n/' > body.txt
+
+          # Create the final file with the new header
+          echo "## Changelog" > latest_notes.txt
+          cat body.txt >> latest_notes.txt
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Contaminants v${{ github.ref_name }}"
+          body_path: latest_notes.txt
+          files: |
+            *.fasta
+            README.md
+            CHANGELOG.md
+          prerelease: true
