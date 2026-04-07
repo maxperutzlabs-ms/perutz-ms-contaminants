@@ -2,6 +2,7 @@
 
 
 ## Release 2026_01
+Released: 2026-04-01
 
 ### Added
 - "LysC" (Promega, V1671) entry Q02SZ7
@@ -14,6 +15,7 @@
 ---
 
 ## Release 2025_01
+Released: 2025-05-14
 
 ### Added
 - "Aprotinin" entry
@@ -31,12 +33,24 @@
 - Added a script to convert the FASTA file without contaminants tags into a FASTA file with contaminants tags.
 - Added a script to format the sequences of a FASTA file to ensure that line breaks occur after every 60 characters
 
+---
+
 ## Release 2023_03
+Released: 2023
+
 - Added the Turbo-ID BirA sequence used by the Ting lab; based on vector sequence TurboID-V5_pRS415 from https://www.addgene.org/107167/
 - Added the 3xMYC-tag entry
 
+---
+
 ## Release 2023_02
+Released: 2023
+
 - Added the APEX2-tag entry
 
+---
+
 ## Release 2023_01
+Released: 2023
+
 - Updated header of synthetic entries to better follow the UniProtKB format
